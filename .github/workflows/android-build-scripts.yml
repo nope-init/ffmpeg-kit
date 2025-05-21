@@ -24,6 +24,8 @@ on:
       - 'tools/**'
       - 'android.sh'
 
+  workflow_dispatch:
+
 jobs:
   build-main-on-linux:
     name: android main on linux
