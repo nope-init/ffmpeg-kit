@@ -118,6 +118,12 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+        name: ffmpegkit-android-${{ matrix.ndk-version }}
+        path: android/build/
+  
   build-api-16-on-macos:
     name: android api 16 on macos
     runs-on: macos-13
